@@ -1,5 +1,5 @@
 interface QiniuOptions {
-    service: string
+    service?: string
     ak: string
     sk: string
 }
