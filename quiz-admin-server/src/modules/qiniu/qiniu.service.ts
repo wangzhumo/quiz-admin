@@ -3,10 +3,11 @@ import { QINIU_CONFIG_OPTIONS } from 'common/constants'
 import QiniuOptions from './qiniuOptions.interface'
 import * as qiniu from 'qiniu'
 import { randomUUID } from 'crypto'
-import path from 'path'
 
 @Injectable()
 export class QiniuService {
+    private readonly DOMAIN = 'https://image.wangzhumo.com'
+
     // create qiniu client
     constructor(@Inject(QINIU_CONFIG_OPTIONS) private options: QiniuOptions) {
         qiniu.conf.ACCESS_KEY = this.options.ak
@@ -14,22 +15,24 @@ export class QiniuService {
     }
 
     // upload image token
-    token(bucket: string, suffix: string): string {
+    token(bucket: string, suffix: string) {
+        const saveKey = `${randomUUID()}.${suffix}`
         const policy = new qiniu.rs.PutPolicy({
             scope: bucket,
-            saveKey: `${randomUUID()}.${suffix}`,
+            expires: 3600,
+            saveKey: saveKey,
         })
-        return policy.uploadToken()
+        return {
+            token: policy.uploadToken(),
+            key: saveKey,
+            domain: this.DOMAIN,
+        }
     }
 
     // default token
-    tokenDefault(fileName: string) {
+    tokenDefault(suffix: string) {
         // get file suffix
-        const suffix = path.extname(fileName)
-        const bucket = ''
-        return new qiniu.rs.PutPolicy({
-            scope: bucket,
-            saveKey: `${randomUUID()}.${suffix}`,
-        }).uploadToken()
+        const bucket = 'nestjs-quiz'
+        return this.token(bucket, suffix)
     }
 }

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common'
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
-import { ImagesController } from './modules/images/images.controller'
 import { ImagesModule } from './modules/images/images.module'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import Configuration from './configuration'
 import { QiniuModule } from 'modules/qiniu/qiniu.module'
+import { WinstonModule } from 'nest-winston'
+import * as winston from 'winston'
+import 'winston-daily-rotate-file'
 
 @Module({
     imports: [
@@ -22,9 +22,25 @@ import { QiniuModule } from 'modules/qiniu/qiniu.module'
                 }
             },
         }),
+        WinstonModule.forRoot({
+            transports: [
+                new winston.transports.DailyRotateFile({
+                    dirname: `logs`, // log dir
+                    filename: '%DATE%.log', // log file name
+                    datePattern: 'YYYY-MM-DD', // looper duration
+                    zippedArchive: true, // zip
+                    maxSize: '20m', // max size
+                    maxFiles: '14d', // save max day
+                    format: winston.format.combine(
+                        winston.format.timestamp({
+                            format: 'YYYY-MM-DD HH:mm:ss',
+                        }),
+                        winston.format.json(),
+                    ),
+                }),
+            ],
+        }),
         ImagesModule,
     ],
-    controllers: [AppController, ImagesController],
-    providers: [AppService],
 })
 export class AppModule {}
