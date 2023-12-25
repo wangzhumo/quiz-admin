@@ -3,10 +3,12 @@ import { QINIU_CONFIG_OPTIONS } from 'common/constants'
 import QiniuOptions from './qiniuOptions.interface'
 import * as qiniu from 'qiniu'
 import { randomUUID } from 'crypto'
+import * as dayjs from 'dayjs'
 
 @Injectable()
 export class QiniuService {
     private readonly DOMAIN = 'https://image.wangzhumo.com'
+    private readonly UPLOAD_URL = 'https://upload-as0.qiniup.com'
 
     // create qiniu client
     constructor(@Inject(QINIU_CONFIG_OPTIONS) private options: QiniuOptions) {
@@ -16,7 +18,9 @@ export class QiniuService {
 
     // upload image token
     token(bucket: string, suffix: string) {
-        const saveKey = `${randomUUID()}.${suffix}`
+        // get current time
+        const currentDate = dayjs().format('YYYY/MM/DD')
+        const saveKey = `${currentDate}/${randomUUID()}.${suffix}`
         const policy = new qiniu.rs.PutPolicy({
             scope: bucket,
             expires: 3600,
@@ -26,6 +30,7 @@ export class QiniuService {
             token: policy.uploadToken(),
             key: saveKey,
             domain: this.DOMAIN,
+            uploadUrl: this.UPLOAD_URL,
         }
     }
 
