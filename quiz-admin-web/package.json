@@ -1,36 +1,40 @@
 {
-  "name": "quizzes-admin-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev -p 8002",
-    "build": "next build",
-    "start": "next start -p 8002",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "14.0.4",
-    "react": "^18",
-    "react-admin": "^4.16.4",
-    "react-dom": "^18",
-    "sass": "^1.69.5",
-    "sass-loader": "^13.3.3",
-    "redux": "^4.2.1",
-    "react-redux": "^8.0.5",
-    "redux-persist": "^6.0.0",
-    "@reduxjs/toolkit": "^1.9.3"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.0",
-    "source-map-support": "^0.5.21",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5"
-  }
+    "name": "quizzes-admin-web",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev -p 8002",
+        "build": "next build",
+        "start": "next start -p 8002",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.9.3",
+        "next": "14.0.4",
+        "react": "^18",
+        "react-admin": "^4.16.4",
+        "react-dom": "^18",
+        "react-redux": "^8.0.5",
+        "redux": "^4.2.1",
+        "redux-persist": "^6.0.0",
+        "sass": "^1.69.5",
+        "sass-loader": "^13.3.3",
+        "string-format": "^2.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@types/string-format": "^2.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.61.0",
+        "@typescript-eslint/parser": "^5.61.0",
+        "eslint": "^8",
+        "eslint-config-next": "14.0.4",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "prettier": "^3.0.0",
+        "source-map-support": "^0.5.21",
+        "tailwindcss": "^3.4.0",
+        "typescript": "^5"
+    }
 }

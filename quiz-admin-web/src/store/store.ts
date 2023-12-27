@@ -3,6 +3,7 @@ import rootReducers, { persistAccount } from './reducers'
 import format from 'string-format'
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, purgeStoredState } from 'redux-persist'
 import { PersistKeys } from './keys'
+import { customMiddleware } from './middleware'
 
 const store = configureStore({
     reducer: rootReducers,
@@ -11,7 +12,7 @@ const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
             }
-        }).concat()
+        }).concat(customMiddleware)
     }
 })
 
@@ -19,7 +20,10 @@ const store = configureStore({
 type IAppState = ReturnType<typeof rootReducers>
 type IAppDispatch = typeof store.dispatch
 
-export const removeUserInfo = () => {
+// persist
+export const persistor = persistStore(store)
+
+export const removeAccountInfo = () => {
     purgeStoredState(persistAccount)
     store.dispatch({
         type: format('{}/{}', PersistKeys.ACCOUNT, 'CLEAR')

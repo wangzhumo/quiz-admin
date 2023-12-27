@@ -6,9 +6,10 @@ export interface AccountStateType {
     accountInfo: AccountInfo | any
 }
 const initialState = {
-    accountInfo: {}
+    accountInfo: {} as AccountInfo
 }
 
+/* eslint-disable */
 const accountReducer = createSlice({
     name: PersistKeys.ACCOUNT,
     initialState: initialState,
@@ -21,6 +22,7 @@ const accountReducer = createSlice({
         }
     }
 })
+/* eslint-disable */
 
 export const { CLEAR, updateAccount } = accountReducer.actions
 export default accountReducer.reducer

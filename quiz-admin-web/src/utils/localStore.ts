@@ -1,11 +1,11 @@
 export function setLocalStore(item: string, store: any) {
     try {
-      localStorage.setItem(item, JSON.stringify(store || {}))
+        localStorage.setItem(item, JSON.stringify(store || {}))
     } catch (e) {
-      console.log('localStorage.setItem', e)
+        console.log('localStorage.setItem', e)
     }
 }
-  
+
 export function remLocalStore(key: string) {
     try {
         localStorage.removeItem(key)

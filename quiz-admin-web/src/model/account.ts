@@ -7,14 +7,14 @@ export interface AuthInfo {
 }
 
 export interface AccountInfo {
-    avatar: string,
-    uid: string,
-    token: string,
-    nick: string,
-    status: number,
-    lastAt: number,
-    createAt: number,
-    authInfo?: AuthInfo,
-    identityType: number,
+    avatar: string
+    uid: string
+    token: string
+    nick: string
+    status: number
+    lastAt: number
+    createAt: number
+    authInfo?: AuthInfo
+    identityType: number
     identity: string
 }
