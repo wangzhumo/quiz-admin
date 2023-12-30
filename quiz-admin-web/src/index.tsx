@@ -1,13 +1,27 @@
+import { getCurrentLocale, getCurrentMessages } from 'locales'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import { IntlProvider } from 'react-intl'
+import { Provider } from 'react-redux'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { PersistGate } from 'redux-persist/integration/react'
+import routes from 'router/routes'
+import 'styles/index.scss'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
+import store, { persistor } from './store/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+const router = createBrowserRouter(routes)
 root.render(
   <React.StrictMode>
-    <App />
+    <IntlProvider locale={getCurrentLocale()} messages={getCurrentMessages()}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <RouterProvider router={router} />
+        </PersistGate>
+      </Provider>
+    </IntlProvider>
   </React.StrictMode>
 )
 

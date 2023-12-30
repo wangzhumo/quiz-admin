@@ -1,26 +1,26 @@
-import { AccountInfo } from '@/model/account'
 import { createSlice } from '@reduxjs/toolkit'
+import { AccountInfo } from 'model/account'
 import { PersistKeys } from '../keys'
 
 export interface AccountStateType {
-    accountInfo: AccountInfo | any
+  accountInfo: AccountInfo | any
 }
 const initialState = {
-    accountInfo: {} as AccountInfo
+  accountInfo: {} as AccountInfo
 }
 
 /* eslint-disable */
 const accountReducer = createSlice({
-    name: PersistKeys.ACCOUNT,
-    initialState: initialState,
-    reducers: {
-        CLEAR: (state: AccountStateType, action) => {
-            state.accountInfo = {}
-        },
-        updateAccount: (state: AccountStateType, action) => {
-            state.accountInfo = action.payload
-        }
+  name: PersistKeys.ACCOUNT,
+  initialState: initialState,
+  reducers: {
+    CLEAR: (state: AccountStateType, action) => {
+      state.accountInfo = {}
+    },
+    updateAccount: (state: AccountStateType, action) => {
+      state.accountInfo = action.payload
     }
+  }
 })
 /* eslint-disable */
 

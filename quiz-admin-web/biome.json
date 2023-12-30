@@ -6,7 +6,23 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"a11y" : {
+				"noSvgWithoutTitle": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off"
+			},
+			"complexity": {
+				"noForEach": "off",
+				"noStaticOnlyClass": "off"
+			},
+			"style": {
+				"noUselessElse": "off"
+			},
+			"suspicious": {
+				"noExplicitAny":"warn"
+			}
 		}
 	},
 	"formatter": {
