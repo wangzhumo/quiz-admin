@@ -1,6 +1,6 @@
 import { AccountInfo } from '@/model/account'
 import { createSlice } from '@reduxjs/toolkit'
-import { PersistKeys } from 'src/store/keys'
+import { PersistKeys } from '../keys'
 
 export interface AccountStateType {
     accountInfo: AccountInfo | any

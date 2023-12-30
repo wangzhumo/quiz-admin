@@ -1,0 +1,83 @@
+@charset "UTF-8";
+@import 'init';
+
+$rowCount: 12;
+
+@mixin gridRow {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+@mixin row($rowCount) {
+    display: grid;
+    grid-template-columns: repeat($rowCount, 1fr);
+}
+
+.gridRow {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+@media screen and (min-width: 300px) {
+    @for $i from 1 through 12 {
+        .col-mobile-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    @for $i from 1 through 12 {
+        .col-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@media screen and (min-width: 744px) {
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    @for $i from 1 through 12 {
+        .col-lg-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    @for $i from 1 through 12 {
+        .col-xl-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    @for $i from 1 through 12 {
+        .col-xxl-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@media screen and (min-width: 1620px) {
+    @for $i from 1 through 12 {
+        .col-3xl-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    @for $i from 1 through 12 {
+        .col-4xl-#{$i} {
+            grid-column: span #{$i};
+        }
+    }
+}
