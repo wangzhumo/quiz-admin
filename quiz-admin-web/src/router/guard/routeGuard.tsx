@@ -1,5 +1,5 @@
-import { useAccount } from 'hooks/useAccount'
-import { ReactNode } from 'react'
+import { useAccount } from '@/hooks/useAccount'
+import { Fragment, ReactNode } from 'react'
 import { Navigate, matchRoutes, useLocation } from 'react-router-dom'
 import routes from '../routes'
 import { GuardMeta } from './guard'
@@ -30,7 +30,8 @@ const RouteGuard: React.FC<RouteGuardProps> = props => {
       return <Navigate to={'/'} />
     }
   }
-  return <div>{props.children}</div>
+  // biome-ignore lint/complexity/noUselessFragments: <explanation>
+  return <Fragment>{props.children}</Fragment>
 }
 
 export default RouteGuard

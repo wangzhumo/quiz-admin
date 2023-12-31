@@ -1,9 +1,9 @@
-import { AccountInfo } from 'model/account'
-import { useAppDispatch, useAppSelector } from 'store/hooks'
-import { updateAccount } from 'store/slices/accountSlice'
-import { removeAccountInfo } from 'store/store'
-import CheckUtils from 'utils/checkutils'
-import { getLocalStore, remLocalStore, setLocalStore } from 'utils/localStore'
+import { AccountInfo } from '@/model/account'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { updateAccount } from '@/store/slices/accountSlice'
+import { removeAccountInfo } from '@/store/store'
+import CheckUtils from '@/utils/checkutils'
+import { getLocalStore, remLocalStore, setLocalStore } from '@/utils/localStore'
 const userStoreKey = 'QUIZ-USER-STORE'
 export const defaultAccountStore = {
   avatar: '',

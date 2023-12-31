@@ -1,4 +1,5 @@
-import { RouteObject } from 'react-router-dom'
+import Dashboard from '@/pages/dashboard/dashboard'
+import { RouteObject, createBrowserRouter } from 'react-router-dom'
 import MainLayout from '../pages/main/main'
 import NotFoundPage from '../pages/notFound/notFound'
 import { GuardMeta } from './guard/guard'
@@ -17,12 +18,24 @@ declare module 'react-router-dom' {
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <MainLayout />
+    element: (
+      <RouteGuard>
+        <MainLayout />
+      </RouteGuard>
+    ),
+    children: [
+      {
+        path: '/',
+        element: <Dashboard />
+      }
+    ]
   },
   {
     path: '*',
     element: <NotFoundPage />
   }
 ]
+
+export const router = createBrowserRouter(routes)
 
 export default routes

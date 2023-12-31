@@ -1,19 +1,16 @@
-import { Layout } from 'antd'
-import { Fragment } from 'react'
+import { Box, Main, Sidebar } from 'grommet'
 import { Outlet } from 'react-router-dom'
-
-const { Header, Content } = Layout
 
 const MainLayout: React.FC = () => {
   return (
-    <Fragment>
-      <Header className={'app-header'}>
-        <div>Header</div>
-      </Header>
-      <Content className='main-content'>
+    <Box direction='row' height={{ min: '100%' }}>
+      <Sidebar className={'app-sidebar'}>
+        <div>Sidebar</div>
+      </Sidebar>
+      <Main className='app-main'>
         <Outlet />
-      </Content>
-    </Fragment>
+      </Main>
+    </Box>
   )
 }
 
