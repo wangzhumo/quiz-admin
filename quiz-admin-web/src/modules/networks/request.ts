@@ -4,9 +4,9 @@ import Axios, {
   CreateAxiosDefaults
 } from 'axios'
 import BN from 'bn.js'
-import { getLocalAccount } from 'hooks/useAccount'
-import CheckUtils from 'utils/checkutils'
-import eventBus from 'utils/eventbus'
+import { getLocalAccount } from '@/hooks/useAccount'
+import CheckUtils from '@/utils/checkutils'
+import eventBus from '@/utils/eventbus'
 import { defaultHeader, formDataHeader } from './header'
 import { onResponse } from './response'
 import {

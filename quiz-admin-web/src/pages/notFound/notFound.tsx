@@ -1,10 +1,10 @@
 import { MessageKeys } from '@/locales'
 import classnames from 'classnames'
-import { Button } from 'grommet'
 import { useEffect, useRef, useState } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { useNavigate } from 'react-router-dom'
 import styles from './notFound.module.css'
+import { Button } from "antd";
 
 interface NotFoundProps {
   content?: string

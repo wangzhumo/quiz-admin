@@ -1,13 +1,39 @@
-import styles from '@/App.module.css'
 import { router } from '@/router/routes'
-import { Grommet } from 'grommet'
 import { RouterProvider } from 'react-router-dom'
-
+import { createContext, useMemo, useState } from 'react'
+import { createTheme, PaletteMode, ThemeProvider } from '@mui/material'
+const ColorModeContext = createContext({ toggleColorMode: () => {} })
 function App() {
+  const [themeMode, setThemeMode] = useState<PaletteMode>('light')
+
+  const colorMode = useMemo(
+    () => ({
+      // The dark mode switch would invoke this method
+      toggleColorMode: () => {
+        setThemeMode((prevMode: PaletteMode) =>
+          prevMode === 'light' ? 'dark' : 'light'
+        )
+      }
+    }),
+    []
+  )
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: themeMode
+        }
+      }),
+    [themeMode]
+  )
+
   return (
-    <Grommet className={styles.fullscreen}>
-      <RouterProvider router={router} />
-    </Grommet>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   )
 }
 

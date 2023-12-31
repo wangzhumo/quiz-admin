@@ -1,15 +1,28 @@
-import { Box, Main, Sidebar } from 'grommet'
+import SliderComponent from '@/components/slider/slider'
 import { Outlet } from 'react-router-dom'
+import { Layout } from 'antd'
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
+import { Box } from "@mui/material";
 
-const MainLayout: React.FC = () => {
+const { Sider, Content } = Layout
+
+const MainLayout = () => {
   return (
-    <Box direction='row' height={{ min: '100%' }}>
-      <Sidebar className={'app-sidebar'}>
-        <div>Sidebar</div>
-      </Sidebar>
-      <Main className='app-main'>
+    <Box>
+      <Sider
+        className={'app-sidebar'}
+        collapsible={true}
+        defaultCollapsed={false}
+        reverseArrow={true}
+      >
+        <SliderComponent />
+      </Sider>
+      <Box className='app-main'>
         <Outlet />
-      </Main>
+      </Box>
     </Box>
   )
 }
