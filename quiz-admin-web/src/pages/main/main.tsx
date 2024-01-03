@@ -12,8 +12,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import Typography from '@mui/material/Typography'
-import { styled } from '@mui/material/styles'
+import { styled, useTheme } from '@mui/material/styles'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
@@ -68,7 +67,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const MainLayout = () => {
   const theme = useTheme()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -134,6 +133,3 @@ const MainLayout = () => {
 }
 
 export default MainLayout
-function useTheme() {
-  throw new Error('Function not implemented.')
-}
