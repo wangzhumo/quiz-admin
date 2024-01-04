@@ -1,4 +1,5 @@
 import SliderComponent from '@/components/slider/slider'
+import SliderHeaderComponent from '@/components/slider/sliderHeader'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
@@ -6,15 +7,10 @@ import '@fontsource/roboto/700.css'
 import { Box } from '@mui/material'
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
 import Drawer from '@mui/material/Drawer'
-import IconButton from '@mui/material/IconButton'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
 import { styled, useTheme } from '@mui/material/styles'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import QuizAppBar from '@/components/appbar/quizAppbar'
 
 const drawerWidth = 240
 
@@ -56,15 +52,6 @@ const AppBar = styled(MuiAppBar, {
   })
 }))
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: 'flex-end'
-}))
-
 const MainLayout = () => {
   const theme = useTheme()
   const [open, setOpen] = useState(true)
@@ -79,7 +66,7 @@ const MainLayout = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position='fixed' open={open}>
-        <div>AppBar AppBar AppBar AppBar AppBar</div>
+        <QuizAppBar onClick={handleDrawerOpen} open={open}/>
       </AppBar>
       <Drawer
         sx={{
@@ -90,42 +77,15 @@ const MainLayout = () => {
             boxSizing: 'border-box'
           }
         }}
+        className='quiz-drawer'
         variant='persistent'
         anchor='left'
         open={open}
       >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            <div>Close</div>
-          </IconButton>
-        </DrawerHeader>
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <div>Button</div>
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <div>Button</div>
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        <SliderHeaderComponent onClick={handleDrawerClose} />
+        <SliderComponent />
       </Drawer>
       <Main open={open}>
-        <DrawerHeader />
         <Outlet />
       </Main>
     </Box>
