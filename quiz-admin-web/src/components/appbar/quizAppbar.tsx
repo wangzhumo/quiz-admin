@@ -13,6 +13,7 @@ function QuizAppBar(props: QuizAppBarProps) {
   return (
     <div className={styles.appbarContainer}>
       <IconButton
+        size={'small'}
         className={ classnames(props.open ? styles.hide : '') }
         onClick={props.onClick}
       >

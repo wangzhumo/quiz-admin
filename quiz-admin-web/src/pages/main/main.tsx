@@ -66,7 +66,7 @@ const MainLayout = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position='fixed' open={open}>
-        <QuizAppBar onClick={handleDrawerOpen} open={open}/>
+        <QuizAppBar onClick={handleDrawerOpen} open={open} />
       </AppBar>
       <Drawer
         sx={{
@@ -75,7 +75,7 @@ const MainLayout = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box'
-          }
+          },
         }}
         className='quiz-drawer'
         variant='persistent'
