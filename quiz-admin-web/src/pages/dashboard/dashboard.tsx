@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './dashboard.module.css'
+import styles from './dashboard.module.scss'
 
 function Dashboard() {
-  return <div>dashboard</div>
+  return <div className={styles.dashboardContainer}>dashboard</div>
 }
 
 export default Dashboard
