@@ -1,0 +1,77 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../node_modules/@prisma-mongodb/client"
+}
+
+/// prisma answer model
+model answer {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  qid     BigInt
+  answers Answer[]
+}
+
+type Answer {
+  qqid   BigInt
+  ignore Boolean @default(false)
+  oid    BigInt
+}
+
+model calculation {
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  qid    BigInt
+  mode   CalcMode
+  matchs Match[]
+  /// may be js code
+  exec   String
+}
+
+// calculation mode
+enum CalcMode {
+  Match
+  Sum
+}
+
+type Match {
+  min Float
+  max Float
+  rid String
+}
+
+model result {
+  id   String       @id @default(auto()) @map("_id") @db.ObjectId
+  qid  BigInt
+  /// result name
+  name String
+  /// result description [markdown]
+  desc ResultDesc[]
+}
+
+type ResultDesc {
+  type   Int /// 0: markdown, 1: image, 2: html
+  value  String
+  locked Boolean @default(true)
+  sort   Int
+}
+
+model record {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  qid       BigInt
+  /// which user of Counselor this record belongs to
+  bid       BigInt
+  /// quiz result
+  rid       String
+  /// which user this record belongs to
+  cid       BigInt
+  /// create time
+  createdAt DateTime @default(now())
+  /// unlock pro desc
+  unlock    Boolean  @default(false)
+
+  /// details answer
+  @@index([bid, cid, qid])
+}

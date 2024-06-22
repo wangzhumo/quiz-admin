@@ -1,9 +1,9 @@
+import { randomUUID } from 'crypto'
 import { Inject, Injectable } from '@nestjs/common'
 import { QINIU_CONFIG_OPTIONS } from 'common/constants'
-import QiniuOptions from './qiniuOptions.interface'
-import * as qiniu from 'qiniu'
-import { randomUUID } from 'crypto'
 import * as dayjs from 'dayjs'
+import * as qiniu from 'qiniu'
+import type QiniuOptions from './qiniuOptions.interface'
 
 @Injectable()
 export class QiniuService {

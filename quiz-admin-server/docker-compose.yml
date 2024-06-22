@@ -1,8 +1,29 @@
 services:
-  quiz-server:
+  mongo_quiz:
+    container_name: mongo_quiz
+    image: mongodb/mongodb-community-server:latest
     environment:
-      - APP_DB_USER=accountdb
-      - APP_DB_PASS=accountpasd
-      - APP_DB_NAME=ucenter
+      MONGODB_INITDB_ROOT_USERNAME: root
+      MONGODB_INITDB_ROOT_PASSWORD: mongodbpasd
+      MONGODB_INITDB_DATABASE: admin
+      MONGO_DATABASE: quizdb
+      MONGO_USERNAME: quiz
+      MONGO_PASSWORD: mongoquizpasd
+    ports:
+      - 27017:27017
+    volumes:
+      - type: bind
+        source: ./init-scripts
+        target: /docker-entrypoint-initdb.d/
+      - mongodb_data:/data/db
+  quiz_server:
+    environment:
+      APP_DB_USER: accountdb
+      APP_DB_PASS: accountpasd
+      APP_DB_NAME: ucenter
     volumes:
       - ./init-scripts:/docker-entrypoint-initdb.d/
+    depends_on:
+      - mongdb-quiz
+volumes:
+  mongodb_data:

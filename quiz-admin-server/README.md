@@ -7,3 +7,9 @@ Project for quizzess admin server, include quiz create, statics resource , proje
 -   **Config :** config for web and flutter project , manage config , edit config , dispatch config.
 
 ## Features
+
+npx prisma generate --schema src/database/postgres/schema.prisma
+npx prisma generate --schema src/database/mongo/schema.prisma
+
+npx prisma db push --schema src/database/postgres/schema.prisma
+npx prisma db push --schema src/database/mongo/schema.prisma

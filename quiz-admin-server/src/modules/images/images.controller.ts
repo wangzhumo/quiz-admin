@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common'
 import { StatusCheck } from 'common/status'
-import { QiniuService } from 'modules/qiniu/qiniu.service'
-import { ImageTokenDto } from './dto/token.dto'
+import type { QiniuService } from 'modules/qiniu/qiniu.service'
+import type { ImageTokenDto } from './dto/token.dto'
 import { ApiTags } from '@nestjs/swagger'
 
 @Controller('images')

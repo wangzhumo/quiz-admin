@@ -25,7 +25,7 @@ import 'winston-daily-rotate-file'
         WinstonModule.forRoot({
             transports: [
                 new winston.transports.DailyRotateFile({
-                    dirname: `logs`, // log dir
+                    dirname: "logs", // log dir
                     filename: '%DATE%.log', // log file name
                     datePattern: 'YYYY-MM-DD', // looper duration
                     zippedArchive: true, // zip

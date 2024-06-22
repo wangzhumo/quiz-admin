@@ -1,0 +1,82 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../node_modules/@prisma-postgres/client"
+}
+
+/// quizzes main table
+model quizzes {
+  id          Int         @id @default(autoincrement())
+  /// quizzes name
+  name        String      @db.VarChar(255)
+  description String      @db.VarChar(1000)
+  startAt     DateTime    @default(now())
+  endAt       DateTime    @default(now())
+  status      Int         @default(0) @db.SmallInt
+  sort        Int         @default(autoincrement())
+  tag         String      @db.VarChar(255)
+  /// top
+  flag        Int         @default(0)
+  createAt    DateTime    @default(now())
+  updateAt    DateTime    @updatedAt
+  /// creator of quizzes,maybe user or org
+  creator     BigInt      @db.BigInt
+  pic         String      @db.VarChar(255)
+  hint        String      @db.VarChar(255)
+  questions   questions[]
+
+  @@index([creator])
+}
+
+/// Quiz question table
+model questions {
+  id          Int          @id @default(autoincrement())
+  qid         Int
+  type        Int          @db.SmallInt
+  title       QuestionType
+  description String?      @db.VarChar(1000)
+  pic         String?      @db.VarChar(256)
+  order       Int          @default(0)
+  flag        Int          @default(0)
+  ignore      Boolean      @default(false)
+  status      Int          @default(0) @db.SmallInt
+  createAt    DateTime     @default(now())
+  updateAt    DateTime     @updatedAt
+  options     options[]
+  quizzes     quizzes      @relation(fields: [qid], references: [id])
+
+  @@index([qid])
+}
+
+enum QuestionType {
+  /// most match
+  Matching
+  /// rating 
+  Rating
+  /// yes or no
+  TrueOrFalse
+}
+
+/// question options
+model options {
+  id       Int       @id @default(autoincrement())
+  qid      Int // quizzes ID
+  qqid     Int // quizzes - question id
+  question questions @relation(fields: [qqid], references: [id])
+  content  String?   @db.VarChar(256)
+  pic      String?   @db.VarChar(256)
+  order    Int       @default(0)
+  scoring  Int       @default(0)
+  /// for rating min value
+  min      Float?
+  /// for rating max value
+  max      Float?
+  /// for rating step
+  step     Float     @default(1.0)
+
+  @@index([qid, qqid])
+}
