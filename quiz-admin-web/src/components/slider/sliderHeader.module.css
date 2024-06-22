@@ -1,0 +1,14 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px;
+
+    .text {
+        text-align: center;
+    }
+
+    .iconButton {
+        position: relative;
+    }
+}
