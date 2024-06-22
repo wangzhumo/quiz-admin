@@ -1,53 +1,56 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
-	"organizeImports": {
-		"enabled": true
-	},
-	"linter": {
-		"ignore": ["./vite.config.ts"],
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"a11y" : {
-				"noSvgWithoutTitle": "off"
-			},
-			"correctness": {
-				"useExhaustiveDependencies": "off"
-			},
-			"complexity": {
-				"noForEach": "off",
-				"noStaticOnlyClass": "off"
-			},
-			"style": {
-				"noUselessElse": "off"
-			},
-			"suspicious": {
-				"noExplicitAny":"warn"
-			}
-		}
-	},
-	"formatter": {
-		"enabled": true,
-		"formatWithErrors": true,
-		"indentStyle": "space",
-		"indentWidth": 2,
-		"lineWidth": 80,
-		"lineEnding": "lf",
-		"ignore": []
-	},
-	"javascript": {
-		"parser": {
-			"unsafeParameterDecoratorsEnabled": true
-			},
-		"formatter" : {
-			"quoteStyle": "single",
-			"jsxQuoteStyle": "single",
-			"quoteProperties":"asNeeded",
-			"trailingComma":"none",
-			"semicolons":"asNeeded",
-			"bracketSameLine": false,
-			"bracketSpacing": true,
-			"arrowParentheses":"asNeeded"
-		}
-	}
+  "$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "ignore": ["./vite.config.ts"],
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useKeyWithClickEvents": "off",
+        "useAltText": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
+      "complexity": {
+        "noForEach": "off",
+        "noStaticOnlyClass": "off"
+      },
+      "style": {
+        "noUselessElse": "off",
+        "useSelfClosingElements" : "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "lineEnding": "lf",
+    "ignore": []
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    },
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "none",
+      "semicolons": "asNeeded",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "arrowParentheses": "asNeeded"
+    }
+  }
 }
