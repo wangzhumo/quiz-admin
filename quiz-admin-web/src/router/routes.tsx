@@ -1,8 +1,8 @@
 import Dashboard from '@/pages/dashboard/dashboard'
-import { RouteObject, createBrowserRouter } from 'react-router-dom'
+import { type RouteObject, createBrowserRouter } from 'react-router-dom'
 import MainLayout from '../pages/main/main'
 import NotFoundPage from '../pages/notFound/notFound'
-import { GuardMeta } from './guard/guard'
+import type { GuardMeta } from "@/router/guard/guard"
 import RouteGuard from './guard/routeGuard'
 
 declare module 'react-router-dom' {

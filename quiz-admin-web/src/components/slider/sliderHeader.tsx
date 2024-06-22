@@ -1,8 +1,5 @@
 import logo from '@/assets/images/app_logo.png'
-import CloseIcon from '@mui/icons-material/ArrowCircleLeft'
-import { IconButton } from '@mui/material'
-import styles from './sliderHeader.module.scss'
-import Image from '@/components/common/image'
+import styles from './sliderHeader.module.css'
 
 export interface SliderHeaderProps {
   onClick: () => void
@@ -10,12 +7,12 @@ export interface SliderHeaderProps {
 
 const SliderHeaderComponent = (props: SliderHeaderProps) => {
   return (
-    <div className={styles.headerContainer}>
-      <Image src={logo} height={'40px'} />
-      <span className={styles.text}>Quizzes Admin</span>
-      <IconButton className={styles.iconButton} onClick={props.onClick}>
-        <CloseIcon htmlColor='#000000' />
-      </IconButton>
+    <div className='flex flex-col h-20 justify-center'>
+      <div className='flex justify-center content-center items-center space-x-2'>
+        <img src={logo} className='w-11 h-11' />
+        <span className='text-3xl inline-block'>Quizzes</span>
+      </div>
+      <div className={styles.iconButton} onClick={() => props.onClick()}></div>
     </div>
   )
 }
