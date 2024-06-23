@@ -1,0 +1,5 @@
+.bg-image {
+    object-fit: cover;
+    border-bottom-left-radius: 4rem;
+    border-top-left-radius: 4rem;
+}

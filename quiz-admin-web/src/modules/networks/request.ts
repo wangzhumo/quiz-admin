@@ -4,14 +4,11 @@ import Axios, {
   CreateAxiosDefaults
 } from 'axios'
 import BN from 'bn.js'
-import { getLocalAccount } from '@/hooks/useAccount'
+import { getLocalAccount } from '@/modules/hooks/useAccount'
 import CheckUtils from '@/utils/checkutils'
-import eventBus from '@/utils/eventbus'
 import { defaultHeader, formDataHeader } from './header'
 import { onResponse } from './response'
 import {
-  BUS_TOKEN_EXPIRE_KEY,
-  BUS_TOKEN_INVALID_KEY,
   RequestData,
   ResponsePromiseData
 } from './types'
@@ -42,7 +39,8 @@ class BaseRequest {
       res => res,
       err => {
         if (err?.response?.status === 401) {
-          eventBus.emit(BUS_TOKEN_INVALID_KEY, {})
+          // TODO
+          // eventBus.emit(BUS_TOKEN_INVALID_KEY, {})
         }
         return Promise.reject(err)
       }
@@ -78,8 +76,8 @@ class BaseRequest {
       .sub(new BN(new Date().getTime()))
       .toNumber()
     if (expireTime <= 10 * 3600 * 1000) {
-      // restart get token emit
-      eventBus.emit(BUS_TOKEN_EXPIRE_KEY, userInfo)
+      // TODO restart get token emit
+      // eventBus.emit(BUS_TOKEN_EXPIRE_KEY, userInfo)
     }
     // if expired cancel request
     return expireTime > 0
@@ -150,7 +148,7 @@ class BaseRequest {
 }
 
 export default class Request extends BaseRequest {
-  private readonly showError: boolean
+  readonly showError: boolean
 
   constructor(baseUrl?: string) {
     super(baseUrl ?? '')
