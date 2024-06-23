@@ -5,6 +5,7 @@ import type { TableProps } from 'antd'
 import { Table } from 'antd'
 
 interface DataType {
+  key: string
   uid: string
   name: string
   participant: string
@@ -48,42 +49,48 @@ const columns: TableProps<DataType>['columns'] = [
 function Dashboard() {
   const data: DataType[] = [
     {
-      uid: '111111111',
+      key: '63435',
+      uid: '63435',
       name: 'John Brown',
       participant: '31111112',
       cost: 'New York No. 1 Lake Park',
       result: ['nice', 'developer']
     },
     {
-      uid: '111111111',
+      key: '4541',
+      uid: '4541',
       name: 'John Brown',
       participant: '31111112',
       cost: 'New York No. 1 Lake Park',
       result: ['nice', 'developer']
     },
     {
-      uid: '111111111',
+      key: '2313',
+      uid: '2313',
       name: 'John Brown',
       participant: '31111112',
       cost: 'New York No. 1 Lake Park',
       result: ['nice', 'developer']
     },
     {
-      uid: '111111111',
+      key: '1111',
+      uid: '1111',
       name: 'John Brown',
       participant: '31111112',
       cost: 'New York No. 1 Lake Park',
       result: ['nice', 'developer']
     },
     {
-      uid: '111111111',
+      key: '222',
+      uid: '222',
       name: 'John Brown',
       participant: '31111112',
       cost: 'New York No. 1 Lake Park',
       result: ['nice', 'developer']
     },
     {
-      uid: '111111111',
+      key: '123123',
+      uid: '123123',
       name: 'John Brown',
       participant: '31111112',
       cost: 'New York No. 1 Lake Park',
@@ -169,7 +176,7 @@ function Dashboard() {
           </span>
         </div>
         <div className='overflow-x-auto mt-6'>
-          <Table columns={columns} dataSource={data}></Table>
+          <Table columns={columns} dataSource={data} ></Table>
         </div>
       </div>
     </div>

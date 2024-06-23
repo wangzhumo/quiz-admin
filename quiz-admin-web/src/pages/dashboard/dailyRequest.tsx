@@ -45,6 +45,7 @@ import type {
 } from 'echarts-for-react/src/types'
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
+import { Logger } from "@/utils/logger";
 
 // Register the required components
 echarts.use([
@@ -86,8 +87,8 @@ function ChartComponent() {
 
   // init
   useEffect(() => {
-    console.log(dataValue)
-    console.log(timeData)
+    Logger.d(dataValue)
+    Logger.d(timeData)
   }, [])
 
   const lineOption = {
