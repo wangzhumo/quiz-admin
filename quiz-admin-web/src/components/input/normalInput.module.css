@@ -1,0 +1,31 @@
+.normalInputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .normalInputTitle{
+        font-size: 16px;
+        line-height: 24px;
+        color: #FFFFFF;
+    }
+
+    .normalInput {
+        :global(.ant-input) {
+            height: 24px;
+            font-size: 16px !important;
+            line-height: 24px;
+            color: #ffffff;
+            background: transparent !important;
+        }
+    }
+}
+
+.normalInputContainerDel {
+    flex-direction: row;
+    align-items: center;
+}
+
+
+

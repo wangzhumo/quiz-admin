@@ -1,11 +1,13 @@
 import { AiTwotoneMessage  } from "react-icons/ai"
 import { Popover } from "antd";
+import SliderHeaderComponent from "@/components/slider/sliderHeader";
 export interface QuizAppBarProps {
   onClick: () => void
   open?: boolean
 }
 
 function QuizAppBar(props: QuizAppBarProps) {
+  const handleDrawerOpen = () => {}
   const avatarOptions = (
     <>
       <div className="p-3">
@@ -27,8 +29,11 @@ function QuizAppBar(props: QuizAppBarProps) {
     </>
   );
   return (
-    <div className='navbar bg-white h-20'>
-      <div className='navbar-end flex-1 gap-10'>
+    <div className='navbar h-20 w-full border-b-1 border-line fixed bg-black-main z-40'>
+      <div className="navbar-start">
+        <SliderHeaderComponent onClick={handleDrawerOpen} />
+      </div>
+      <div className='navbar-end w-full gap-10'>
         <div role="button" className="btn btn-ghost btn-circle">
           <div className="indicator">
             <AiTwotoneMessage size={30} />
@@ -36,23 +41,21 @@ function QuizAppBar(props: QuizAppBarProps) {
           </div>
         </div>
         <Popover content={avatarOptions}>
-          <div className='flex space-x-3'>
+          <div className='flex space-x-3 text-white'>
             <div className='avatar'>
               <div className='w-12 rounded-full'>
-                {/* biome-ignore lint/a11y/useAltText: <explanation> */}
                 <img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg' />
               </div>
             </div>
             <div className='flex flex-col justify-center items-start content-center'>
-              <div className='text-sm  focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white'>
+              <div className='text-sm'>
                 UserName
               </div>
-              <div className='text-xs font-light	 focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white'>
+              <div className='text-xs font-light'>
                 Admin
               </div>
             </div>
           </div>
-
         </Popover>
       </div>
     </div>

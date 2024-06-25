@@ -7,7 +7,7 @@ export interface SliderHeaderProps {
 
 const SliderHeaderComponent = (props: SliderHeaderProps) => {
   return (
-    <div className='flex flex-col h-20 justify-center'>
+    <div className='flex flex-col h-20 justify-center border-b-1 border-line'>
       <div className='flex justify-center content-center items-center space-x-2'>
         <img src={logo} className='w-11 h-11' />
         <span className='text-3xl inline-block'>Quizzes</span>

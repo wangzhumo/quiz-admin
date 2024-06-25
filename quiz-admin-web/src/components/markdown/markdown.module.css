@@ -1,0 +1,49 @@
+.dark-editor {
+    --accentBase: #fffcfc;
+    --accentBgSubtle: #fff8f7;
+    --accentBg: #feebe7;
+    --accentBgHover: #ffdcd3;
+    --accentBgActive: #ffcdc2;
+    --accentLine: #fdbdaf;
+    --accentBorder: #f5a898;
+    --accentBorderHover: #ec8e7b;
+    --accentSolid: #e54d2e;
+    --accentSolidHover: #dd4425;
+    --accentText: #d13415;
+    --accentTextContrast: #5c271f;
+
+    --baseBase: #fdfcfd;
+    --baseBgSubtle: #faf9fb;
+    --baseBg: #f2eff3;
+    --baseBgHover: #eae7ec;
+    --baseBgActive: #e3dfe6;
+    --baseLine: #dbd8e0;
+    --baseBorder: #d0cdd7;
+    --baseBorderHover: #bcbac7;
+    --baseSolid: #8e8c99;
+    --baseSolidHover: #84828e;
+    --baseText: #65636d;
+    --baseTextContrast: #211f26;
+
+    --admonitionTipBg: #CAF1F6;
+    --admonitionTipBorder: #3DB9CF;
+
+    --admonitionInfoBg: #DAF1DB;
+    --admonitionInfoBorder: #65BA74;
+
+    --admonitionCautionBg: #FFEE9C;
+    --admonitionCautionBorder: #E2A336;
+
+    --admonitionDangerBg: #FFDBDC;
+    --admonitionDangerBorder: #EB8E90;
+
+    --admonitionNoteBg: #eae7ec;
+    --admonitionNoteBorder: #bcbac7;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    color: var(--baseText);
+    --basePageBg: black;
+    background: var(--basePageBg);
+}

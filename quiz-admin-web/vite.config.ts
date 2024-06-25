@@ -1,28 +1,37 @@
 import react from '@vitejs/plugin-react'
+import mdx from '@mdx-js/rollup'
 import { createLogger, defineConfig } from 'vite'
 import svgr from 'vite-plugin-svgr'
 import { fileURLToPath } from 'url'
 import { consola } from 'consola/browser'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
-
 const logger = createLogger()
-logger.error = (msg, options) => {
+logger.error = (msg, _) => {
   consola.error(msg)
 }
-logger.info = (msg, options) => {
+logger.info = (msg, _) => {
   consola.info(msg)
 }
-logger.warn = (msg, options) => {
+logger.warn = (msg, _) => {
   if (msg.includes('vite:css') && msg.includes(' is empty')) return
   consola.warn(msg)
 }
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr(), nodePolyfills() ],
+  plugins: [
+    { enforce: 'pre', ...mdx() },
+    react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
+    svgr(),
+    nodePolyfills()
+  ],
   css: {
     // open css index
-    devSourcemap: true
+    devSourcemap: true,
+    modules: {
+      scopeBehaviour: 'local',
+      localsConvention: 'camelCaseOnly'
+    }
   },
   resolve: {
     alias: [

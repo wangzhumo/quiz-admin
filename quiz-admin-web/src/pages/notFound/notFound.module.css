@@ -106,8 +106,8 @@
     }
 
     .hint {
-        color: var(--999, #999);
-        font-family: Hubot-Sans-RegularWide;
+        color: #999;
+        font-family: Hubot-Sans-RegularWide, serif;
         font-size: 20px;
         margin-top: 24px;
     }
@@ -125,6 +125,7 @@
         display: flex;
         width: 100%;
         height: 100%;
+        color: black;
         text-align: center;
         justify-content: center;
         align-items: center;

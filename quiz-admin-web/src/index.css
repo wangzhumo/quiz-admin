@@ -2,7 +2,11 @@
  * This injects Tailwind's base styles and any base styles registered by
  * plugins.
  */
-@tailwind base;
+@layer tailwind-base, antd;
+
+@layer tailwind-base {
+    @tailwind base;
+}
 
 /**
  * This injects Tailwind's component classes and any component classes
@@ -49,13 +53,16 @@ html {
 
 body {
     margin: 0;
-    @apply bg-white;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
 }
 
 #root {
-    @apply bg-white;
     @apply h-screen;
     @apply w-screen;
+    @apply bg-black-main
 }
 
 /**

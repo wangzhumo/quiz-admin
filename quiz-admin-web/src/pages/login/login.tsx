@@ -18,8 +18,11 @@ const LoginPage = () => {
 
   useEffect(()=>{
     // if login,jump to main
-    navigate('/dashboard')
-    
+    if (hasLogin()) {
+      // JUMP
+      navigate('/dashboard')
+    }
+
   },[])
 
   async function handleLoginLogic() {
@@ -33,25 +36,25 @@ const LoginPage = () => {
   }
 
   return (
-    <div className='flex h-full text-gray-800'>
+    <div className='flex h-full text-white'>
       <div className="flex flex-1 flex-col h-full justify-center content-center items-center">
         <div className="flex flex-col gap-1">
           <span className="text-xl">Email</span>
-          <label className='input input-bordered flex items-center p-0 bg-white'>
-            <input type='text' value={email} className='grow w-96 pl-3' onChange={e => updateEmail(e.target.value)} placeholder='Enter your email.' />
+          <label className='input input-bordered flex items-center p-0 bg-white text-black'>
+            <input type='text' value={email} className='grow w-96 pl-3 ' onChange={e => updateEmail(e.target.value)} placeholder='Enter your email.' />
           </label>
         </div>
         <div className="flex flex-col gap-1 mt-8">
           <span className="text-xl">Password</span>
-          <label className='input input-bordered flex items-center p-0 bg-white'>
+          <label className='input input-bordered flex items-center p-0 bg-white text-black'>
             <input type='password' className='grow w-96 pl-3' value={password} onChange={e => updatePassword(e.target.value)} placeholder='Input your password.'/>
           </label>
         </div>
 
-        <button className="btn btn-primary w-96 text-white font-bold text-xl mt-8 disabled"  disabled={disabled} onClick={handleLoginLogic}>Login</button>
+        <button className="btn btn-primary w-96 text-white disabled:text-white/45 font-bold text-xl mt-8 bg-blue-400 disabled:bg-blue-200"  disabled={disabled} onClick={handleLoginLogic}>Login</button>
       </div>
       <div className="flex-1">
-        <img src={bgDashboard} className={classNames(styles['bg-image'],'h-full','w-full')} />
+        <img src={bgDashboard} className={classNames(styles['bg-image'],'h-full','w-full','opacity-55')} />
       </div>
     </div>
   )

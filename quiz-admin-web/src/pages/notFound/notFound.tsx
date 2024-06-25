@@ -102,7 +102,7 @@ const StarBackgroundComponent = (props: StarBackgroundProps) => {
 export const NotFoundPage = (props: NotFoundProps) => {
   const nav = useNavigate()
   const onLinkClick = () => {
-    nav('/')
+    nav('/dashboard')
   }
 
   return (

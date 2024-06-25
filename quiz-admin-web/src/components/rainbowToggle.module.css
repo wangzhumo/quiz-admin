@@ -1,0 +1,57 @@
+.rainbowUnderlineTextText {
+    white-space: nowrap;
+    flex: 1;
+}
+
+.rainbowUnderlineTextTextLabel {
+    position: relative;
+    white-space: nowrap;
+}
+
+.rainbowUnderlinePoint {
+    position: absolute;
+    background: #ED6C50;
+    width: 8px !important;
+    height: 8px;
+    border-radius: 50%;
+    right: -10px;
+    top: 0;
+}
+
+.rainbowUnderlineText {
+    position: relative;
+    flex: 1;
+    width: fit-content;
+    line-height: 48px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 32px;
+}
+
+.rainbowUnderlineTextLine {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 53px;
+    background: linear-gradient(91.34deg, #ff7d7d 2.21%, #edc150 26.12%, #33ea9e 61.72%, #6650ed 94.78%);
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+}
+
+.rainbowUnderlineTextLineSelected {
+    width: 100%;
+    opacity: 1;
+}
+
+:global {
+    .rainbowUnderlineText:hover .rainbowUnderlineTextLine {
+        width: 100%;
+        opacity: 1;
+        transition: width 0.3s, opacity 0.3s;
+    }
+
+    .rainbowUnderlineText div {
+        white-space: nowrap;
+    }
+}
