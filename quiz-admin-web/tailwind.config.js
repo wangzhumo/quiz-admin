@@ -8,7 +8,8 @@ export default {
       },
       colors: {
         'black-main': '#1A1B1C',
-        'black-hover': '#333333',
+        'black-second': '#333333',
+        'black-hover': '#555555',
         secondary: '#999999',
         line: '#333333',
         'line-hover': '#555555'
