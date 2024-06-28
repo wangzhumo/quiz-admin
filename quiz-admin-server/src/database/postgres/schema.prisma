@@ -36,8 +36,8 @@ model quizzes {
 model questions {
   id          Int          @id @default(autoincrement())
   qid         Int
-  type        Int          @db.SmallInt
-  title       QuestionType
+  type        QuestionType
+  title       String?      @db.VarChar(256)
   description String?      @db.VarChar(1000)
   pic         String?      @db.VarChar(256)
   order       Int          @default(0)
