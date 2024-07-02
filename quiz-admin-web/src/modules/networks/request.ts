@@ -1,17 +1,14 @@
-import Axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  CreateAxiosDefaults
-} from 'axios'
-import BN from 'bn.js'
 import { getLocalAccount } from '@/modules/hooks/useAccount'
 import CheckUtils from '@/utils/checkutils'
+import Axios, {
+  type AxiosInstance,
+  type AxiosRequestConfig,
+  type CreateAxiosDefaults
+} from 'axios'
+import BN from 'bn.js'
 import { defaultHeader, formDataHeader } from './header'
 import { onResponse } from './response'
-import {
-  RequestData,
-  ResponsePromiseData
-} from './types'
+import type { RequestData, ResponsePromiseData } from './types'
 
 const TIME_OUT = 15000
 

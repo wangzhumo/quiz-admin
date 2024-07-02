@@ -50,6 +50,7 @@ declare module '*.webp' {
 }
 
 declare module '*.svg' {
+  // biome-ignore lint/style/useImportType: <explanation>
   import * as React from 'react'
 
   export const ReactComponent: React.FunctionComponent<

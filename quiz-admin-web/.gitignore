@@ -36,11 +36,11 @@ yarn-error.log*
 next-env.d.ts
 
 # IDE - VSCode
+.vscode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 # IDE - IDEA
 .idea
+
+# lcok file
+pnpm-lock.yaml

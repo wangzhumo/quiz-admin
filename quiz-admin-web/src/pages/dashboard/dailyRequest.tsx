@@ -87,8 +87,8 @@ function ChartComponent() {
 
   // init
   useEffect(() => {
-    Logger.d(dataValue)
-    Logger.d(timeData)
+    Logger.i(dataValue)
+    Logger.i(timeData)
   }, [])
 
   const lineOption = {
