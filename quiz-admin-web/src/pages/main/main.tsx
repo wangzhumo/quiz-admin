@@ -7,7 +7,7 @@ import SliderComponent from '@/components/slider/slider'
 import { ComponentPreviews, useInitial } from '@/dev'
 import { StyleProvider } from '@ant-design/cssinjs'
 import { DevSupport } from '@react-buddy/ide-toolbox'
-import { App, ConfigProvider, Popover } from 'antd'
+import { App, ConfigProvider } from 'antd'
 import { Outlet } from 'react-router-dom'
 import colors from 'tailwindcss/colors'
 const antdThemes = {
