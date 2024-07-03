@@ -4,13 +4,13 @@ import NormalInput from '@/components/input/normalInput'
 import MarkdownEditor from "@/components/markdown/markdown";
 import { DatePicker } from "antd";
 import ImagePicker from "@/components/image/picker";
+import QuizzesFooter from "@/components/quizzesFooter";
+import type { CommonTabProps } from "@/pages/quizzes/create/types";
 
-
-
-const OverviewTab = () => {
+const OverviewTab = (props: CommonTabProps) => {
   const { formatMessage: f } = useIntl()
   return (
-    <div className='w-full h-full  mt-6 pt-4'>
+    <div className='w-full h-full  mt-6 pb-14  pt-4'>
       <div className='text-2xl mb-3'>
         <FormattedMessage id={MessageKeys.global.name} />
       </div>
@@ -45,7 +45,7 @@ const OverviewTab = () => {
         <FormattedMessage id={MessageKeys.quizzes.baseTab.banner} />
       </div>
       <ImagePicker />
-      <div className="flex"></div>
+      <QuizzesFooter  {...props} onPageClick={props.onChangePage} classNames='mt-20'/>
     </div>
   )
 }
