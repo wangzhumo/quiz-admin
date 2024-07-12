@@ -20,6 +20,11 @@ export default class CheckUtils {
     )
   }
 
+  static isNumeric(str: any) {
+    if (typeof str !== 'string') return false
+    return !Number.isNaN(str) && !Number.isNaN(Number.parseFloat(str))
+  }
+
   static isTwitterUrl(url: string): boolean {
     const twitterUrlPattern =
       /^https?:\/\/(?:www\.)?twitter\.com\/\w+\/status\/\d+/

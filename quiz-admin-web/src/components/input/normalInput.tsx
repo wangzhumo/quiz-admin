@@ -4,7 +4,7 @@ import { Input } from 'antd'
 import type { InputProps, InputRef } from 'antd'
 import { forwardRef, type ReactNode } from 'react'
 import type { InputStatus } from 'antd/es/_util/statusUtils'
-import { HoverImage } from '@/components/hoverImage'
+import { HoverImage } from '@/components/hover/hoverImage'
 import grayCloseIcon from '@assets/icons/icon-close-gray.svg'
 import grayCloseIconHover from '@assets/icons/icon-close-gray-hover.svg'
 export interface NormalInputProps extends InputProps {

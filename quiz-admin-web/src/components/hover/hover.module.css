@@ -1,0 +1,62 @@
+.hoverImage {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+    .hoverImageClick {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.1s;
+    }
+
+    .hoverImageNormal{
+        display: block;
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+
+    .hoverImageHover {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    :hover:not(.hoverImageDisabled) .hoverImageNormal,
+    :hover:not(.hoverImageDisabled) .hoverImageClick{
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    :hover:not(.hoverImageDisabled) .hoverImageHover {
+        opacity: 1;
+        transition: opacity 0.1s;
+    }
+}
+
+
+.hoverImage.click {
+    .hoverImageNormal {
+        opacity: 0;
+    }
+
+    .hoverImageHover {
+        opacity: 0;
+    }
+
+    .hoverImageClick {
+        opacity: 1;
+        transition: opacity 0.1s;
+    }
+}
+
+.hoverImageDisabled{
+    cursor: not-allowed;
+}
+

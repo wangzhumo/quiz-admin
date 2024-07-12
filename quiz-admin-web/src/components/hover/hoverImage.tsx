@@ -1,5 +1,6 @@
-import { ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import classnames from "classnames";
+import styled from './hover.module.css'
 
 export interface HoverImageProps {
   children?: ReactNode
@@ -29,10 +30,10 @@ export const HoverImage: React.FC<HoverImageProps> = props => {
   }, [props.isClick])
 
   return (
-    <div className={classnames(isClick ? 'hover-image click' : 'hover-image', props.disabled ? 'hover-image-disabled' : '', props.className)} onClick={onClick}>
-      <img className={'hover-image-normal'} src={props.normalImage}  alt={'normal state'}/>
-      <img className={'hover-image-hover'} src={props.hoverImage}  alt={'hover state'}/>
-      {props.clickImage !== undefined ? <img className={'hover-image-click'} src={props.clickImage}  alt={"click state"}/> : null}
+    <div className={classnames(styled.hoverImage,isClick ?  styled.click : '', props.disabled ? styled.hoverImageDisabled : '', props.className)} onClick={onClick}>
+      <img className={styled.hoverImageNormal} src={props.normalImage}  alt={'normal state'}/>
+      <img className={styled.hoverImageHover} src={props.hoverImage}  alt={'hover state'}/>
+      {props.clickImage !== undefined ? <img className={styled.hoverImageClick} src={props.clickImage}  alt={"click state"}/> : null}
       {props.children}
     </div>
   )
