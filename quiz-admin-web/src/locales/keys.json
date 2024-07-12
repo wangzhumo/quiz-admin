@@ -65,7 +65,8 @@
     "create": {
       "baseTab": "quizzes.create.baseTab",
       "questionTab": "quizzes.create.questionTab",
-      "resultTab": "quizzes.create.resultTab"
+      "resultTab": "quizzes.create.resultTab",
+      "calc": "quizzes.create.calc"
     },
     "baseTab": {
       "startAt": "quizzes.baseTab.startAt",
