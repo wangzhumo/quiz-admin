@@ -1,18 +1,21 @@
 import { RainbowUnderlineToggle } from '@/components/rainbowToggle'
 import { MessageKeys } from '@/locales'
-import { QuestionsTab } from '@/pages/quizzes/create/Questions'
 import OverviewTab from '@/pages/quizzes/create/overview'
 import { useState } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import styled from './create.module.css'
+import ResultTab from '@/pages/quizzes/create/result'
+import QuestionsTab from '@/pages/quizzes/create/questions'
+import CalculateTab from '@/pages/quizzes/create/calculate'
 
 const CreateQuizzesPage = () => {
   const [tabIndex, setTabIndex] = useState(0)
   const tabLabels = [
     <FormattedMessage id={MessageKeys.quizzes.create.baseTab} />,
     <FormattedMessage id={MessageKeys.quizzes.create.questionTab} />,
-    <FormattedMessage id={MessageKeys.quizzes.create.resultTab} />
+    <FormattedMessage id={MessageKeys.quizzes.create.resultTab} />,
+    <FormattedMessage id={MessageKeys.quizzes.create.calc} />
   ]
   const onTabChanged = (key: number) => {
     setTabIndex(key)
@@ -45,14 +48,26 @@ const CreateQuizzesPage = () => {
             })}
           </TabList>
           <TabPanel id={'panel-0'} key={'panel-0'}>
-            <OverviewTab count={3} index={0} onChangePage={onTabChanged} />
+            <OverviewTab count={4} index={0} onChangePage={onTabChanged} />
           </TabPanel>
           <TabPanel id={'panel-1'} key={'panel-1'}>
-            <QuestionsTab count={3} index={1} onChangePage={onTabChanged} />
+            <QuestionsTab count={4} index={1} onChangePage={onTabChanged} />
           </TabPanel>
           <TabPanel id={'panel-2'} key={'panel-2'}>
-            <div className='w-full h-screen bg-purple-100 mt-6'>Tab - 2</div>
+            <ResultTab
+              count={4}
+              index={2}
+              onChangePage={onTabChanged}
+            ></ResultTab>
           </TabPanel>
+          <TabPanel id={'panel-3'} key={'panel-3'}>
+            <CalculateTab
+              count={4}
+              index={3}
+              onChangePage={onTabChanged}
+            ></CalculateTab>
+          </TabPanel>
+
         </Tabs>
       </div>
     </div>

@@ -19,6 +19,7 @@ export const QuestionComponent = (props: QuestionComponentProps) => {
             if (question.edit) {
               return (
                 <QuestionEditComponent
+                  key={question.order}
                   question={question}
                   questionCount={props.questions.length}
                 />
